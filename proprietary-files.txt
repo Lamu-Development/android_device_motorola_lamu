@@ -1,4 +1,4 @@
-# Unpinned blobs from motorola/lamu_g/lamu:15/VVTA35.51-158/9536e5:user/release-keys
+# Unpinned blobs from motorola/lamu_g/lamu:15/VVTAS35.51-158-2/0affdf:user/release-keys
 
 # Audio
 vendor/lib64/hw/audio.primary.mt6768.so

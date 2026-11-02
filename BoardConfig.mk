@@ -16,12 +16,20 @@ BOARD_SUPER_PARTITION_SIZE := 8589934592
 include device/motorola/mt6768-common/BoardConfigCommon.mk
 
 # Display
+# Runtime density is driven by ODM: /odm/etc/build.prop imports
+# density_${ro.boot.lcd}.prop (400 for g15/1080p, 280 for g05/720p).
+# Since ro.product.property_source_order prioritizes odm over vendor/system,
+# ro.sf.lcd_density emitted by TARGET_SCREEN_DENSITY into /vendor/build.prop is overridden.
+# The actual purpose of TARGET_SCREEN_DENSITY is build-time asset selection:
+#   - vendor/lineage/config/BoardConfigSoong.mk: charger asset bucket (400 -> xxhdpi)
+#   - build/make + build/soong/fsgen: recovery asset bucket
+# Keep the higher SKU value since charger and recovery share a single image.
 TARGET_SCREEN_DENSITY := 400
 
 # Kernel
 TARGET_KERNEL_DEVICE := mgk_64_k66
 TARGET_KERNEL_DIR := $(KERNEL_PATH)/6.6
-TARGET_KERNEL_PLATFORM_SOURCE := motorola_lamu
+# TARGET_KERNEL_PLATFORM_SOURCE := motorola_lamu
 TARGET_PROVIDES_STATIC_MODULE_LISTS := true
 
 BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(TARGET_KERNEL_DIR)/system_dlkm.modules.load))

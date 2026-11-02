@@ -12,10 +12,10 @@ PRODUCT_PACKAGES += \
     ApertureOverlayLamu \
     FrameworkOverlayLamu \
     FrameworkOverlayLamuLite \
+    StatusBarIconOrderOverlay \
     SystemUIOverlayLamu
 
-# Shipping API Level
-BOARD_SHIPPING_API_LEVEL := 202404
+# Shipping API Level (runtime / GMS; board levels pertencem ao BoardConfigCommon)
 PRODUCT_SHIPPING_API_LEVEL := 35
 
 # SKU properties
@@ -28,7 +28,7 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # SPL
-BOOT_SECURITY_PATCH := 2026-08-05
+BOOT_SECURITY_PATCH := 2026-10-05
 INIT_BOOT_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
