@@ -51,6 +51,8 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(addprefix $(BOARD_KERNEL_MODULE_DIR)/,$
 BOARD_VENDOR_KERNEL_MODULES += \
     $(BOARD_KERNEL_MODULE_DIR)/fmradio_drv_mt6631.ko \
     $(BOARD_KERNEL_MODULE_DIR)/gps_drv_stp.ko \
+    $(BOARD_KERNEL_MODULE_DIR)/gt1151.ko \
+    $(BOARD_KERNEL_MODULE_DIR)/tui-common.ko \
     $(BOARD_KERNEL_MODULE_DIR)/wlan_drv_gen4m_6768.ko \
     $(BOARD_KERNEL_MODULE_DIR)/wmt_chrdev_wifi.ko \
     $(BOARD_KERNEL_MODULE_DIR)/wmt_drv.ko
