@@ -24,5 +24,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="lamu_g-user 15 VVTAS35.51-158-2 0affdf release-keys" \
     BuildFingerprint=motorola/lamu_g/lamu:15/VVTAS35.51-158-2/0affdf:user/release-keys \
+    BuildSystemDesc="lamu_g-user 15 VVTAS35.51-158-2 0affdf release-keys" \
+    BuildSystemFingerprint=motorola/lamu_g/lamu:15/VVTAS35.51-158-2/0affdf:user/release-keys \
     DeviceProduct=lamu \
     SystemName=lamu_g

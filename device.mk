@@ -15,7 +15,7 @@ PRODUCT_PACKAGES += \
     StatusBarIconOrderOverlay \
     SystemUIOverlayLamu
 
-# Shipping API Level (runtime / GMS; board levels pertencem ao BoardConfigCommon)
+# Shipping API Level (runtime / GMS; board levels belong in BoardConfigCommon)
 PRODUCT_SHIPPING_API_LEVEL := 35
 
 # SKU properties
