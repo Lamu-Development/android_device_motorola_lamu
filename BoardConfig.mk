@@ -16,12 +16,20 @@ BOARD_SUPER_PARTITION_SIZE := 8589934592
 include device/motorola/mt6768-common/BoardConfigCommon.mk
 
 # Display
+# Runtime density is driven by ODM: /odm/etc/build.prop imports
+# density_${ro.boot.lcd}.prop (400 for g15/1080p, 280 for g05/720p).
+# Since ro.product.property_source_order prioritizes odm over vendor/system,
+# ro.sf.lcd_density emitted by TARGET_SCREEN_DENSITY into /vendor/build.prop is overridden.
+# The actual purpose of TARGET_SCREEN_DENSITY is build-time asset selection:
+#   - vendor/lineage/config/BoardConfigSoong.mk: charger asset bucket (400 -> xxhdpi)
+#   - build/make + build/soong/fsgen: recovery asset bucket
+# Keep the higher SKU value since charger and recovery share a single image.
 TARGET_SCREEN_DENSITY := 400
 
 # Kernel
 TARGET_KERNEL_DEVICE := mgk_64_k66
 TARGET_KERNEL_DIR := $(KERNEL_PATH)/6.6
-TARGET_KERNEL_PLATFORM_SOURCE := motorola_lamu
+# TARGET_KERNEL_PLATFORM_SOURCE := motorola_lamu
 TARGET_PROVIDES_STATIC_MODULE_LISTS := true
 
 BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(TARGET_KERNEL_DIR)/system_dlkm.modules.load))
@@ -43,6 +51,8 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(addprefix $(BOARD_KERNEL_MODULE_DIR)/,$
 BOARD_VENDOR_KERNEL_MODULES += \
     $(BOARD_KERNEL_MODULE_DIR)/fmradio_drv_mt6631.ko \
     $(BOARD_KERNEL_MODULE_DIR)/gps_drv_stp.ko \
+    $(BOARD_KERNEL_MODULE_DIR)/gt1151.ko \
+    $(BOARD_KERNEL_MODULE_DIR)/tui-common.ko \
     $(BOARD_KERNEL_MODULE_DIR)/wlan_drv_gen4m_6768.ko \
     $(BOARD_KERNEL_MODULE_DIR)/wmt_chrdev_wifi.ko \
     $(BOARD_KERNEL_MODULE_DIR)/wmt_drv.ko
@@ -51,6 +61,9 @@ BOARD_VENDOR_KERNEL_MODULES += \
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# Boot Animation
+TARGET_BOOT_ANIMATION_RES := 1080
 
 # Recovery
 TARGET_RECOVERY_DENSITY := xhdpi

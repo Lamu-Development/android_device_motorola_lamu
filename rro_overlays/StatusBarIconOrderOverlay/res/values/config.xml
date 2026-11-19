@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Status bar icon ordering. Matches framework config_statusBarIcons
+         with `mobile` and `wifi` swapped to align with Motorola stock layout.
+         Items are slot names (values of status_bar_* strings). RRO replaces
+         the entire array, so all entries must be specified. -->
+    <string-array name="config_statusBarIcons">
+        <item>no_calling</item>
+        <item>call_strength</item>
+        <item>alarm_clock</item>
+        <item>rotate</item>
+        <item>headset</item>
+        <item>data_saver</item>
+        <item>ime</item>
+        <item>sync_failing</item>
+        <item>sync_active</item>
+        <item>nfc</item>
+        <item>tty</item>
+        <item>speakerphone</item>
+        <item>cdma_eri</item>
+        <item>data_connection</item>
+        <item>phone_evdo_signal</item>
+        <item>phone_signal</item>
+        <item>secure</item>
+        <item>managed_profile</item>
+        <item>connected_display</item>
+        <item>vpn</item>
+        <item>bluetooth</item>
+        <item>camera</item>
+        <item>microphone</item>
+        <item>location</item>
+        <item>mute</item>
+        <item>volume</item>
+        <item>zen</item>
+        <item>screen_record</item>
+        <item>cast</item>
+        <item>ethernet</item>
+        <item>satellite</item>
+        <item>vowifi</item>
+        <item>volte</item>
+        <item>vonr</item>
+        <item>hotspot</item>
+        <item>stacked_mobile</item>
+        <item>wifi</item>
+        <item>mobile</item>
+        <item>airplane</item>
+        <item>battery</item>
+        <item>sensors_off</item>
+    </string-array>
+</resources>
